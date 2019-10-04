@@ -113,9 +113,9 @@ label="defn-little-endian"}By the **little-endian** representation of a
 non-negative integer, I, represented as $$I = (B_n \ldots B_0)_{256}$$
 in base 256, we refer to a byte array $B = (b_0, b_1, \ldots, b_n)$ such
 that $$b_i :=B_i$$ Accordingly, define the function
-$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{LE}}}$:
+$\operatorname{Enc}_{\operatorname{LE}}$:
 $$\begin{array}{llll}
-       \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{LE}}} : & \mathbb{Z}^+ & \rightarrow & \mathbb{B}\\
+       \operatorname{Enc}_{\operatorname{LE}} : & \mathbb{Z}^+ & \rightarrow & \mathbb{B}\\
        & (B_n \ldots B_0)_{256} & \mapsto & (B_{0,} B_1, \ldots_{}, B_n)
      \end{array}$$
 
@@ -144,7 +144,7 @@ We refer to this structure as a *block tree:*
 
 [\[defn-block-tree\]]{#defn-block-tree label="defn-block-tree"}The
 **block tree** of a blockchain, denoted by
-$\ensuremath{\operatorname{BT}}$ is the union of all different versions
+$\operatorname{BT}$ is the union of all different versions
 of the blockchain observed by all the nodes in the system such as every
 such block is a node in the graph and $B_1$ is connected to $B_2$ if
 $B_1$ is a parent of $B_2$.
@@ -157,16 +157,16 @@ Section [5.2](#sect-finality){reference-type="ref"
 reference="sect-finality"}.
 
 [\[defn-pruned-tree\]]{#defn-pruned-tree label="defn-pruned-tree"}By
-**Pruned Block Tree**, denoted by $\ensuremath{\operatorname{PBT}}$, we
+**Pruned Block Tree**, denoted by $\operatorname{PBT}$, we
 refer to a subtree of the block tree obtained by eliminating all
 branches which do not contain the most recent finalized blocks, as
 defined in Definition
 [\[defn-finalized-block\]](#defn-finalized-block){reference-type="ref"
 reference="defn-finalized-block"}. By **pruning**, we refer to the
-procedure of $\ensuremath{\operatorname{BT}} \leftarrow
-  \ensuremath{\operatorname{PBT}}$. When there is no risk of ambiguity
-and is safe to prune BT, we use $\ensuremath{\operatorname{BT}}$ to
-refer to $\ensuremath{\operatorname{PBT}}$.
+procedure of $\operatorname{BT} \leftarrow
+  \operatorname{PBT}$. When there is no risk of ambiguity
+and is safe to prune BT, we use $\operatorname{BT}$ to
+refer to $\operatorname{PBT}$.
 
 Definition
 [\[defn-chain-subchain\]](#defn-chain-subchain){reference-type="ref"
@@ -176,18 +176,18 @@ branches of the block tree.
 [\[defn-chain-subchain\]]{#defn-chain-subchain
 label="defn-chain-subchain"}Let $G$ be the root of the block tree and
 $B$ be one of its nodes. By [**Chain($B$)**,]{.smallcaps} we refer to
-the path graph from $G$ to $B$ in (P)$\ensuremath{\operatorname{BT}}$.
+the path graph from $G$ to $B$ in (P)$\operatorname{BT}$.
 Conversely, for a chain $C$=[Chain(B)]{.smallcaps}, we define **the head
 of $C$** to be $B$, formally noted as $B :=$[Head($C$)]{.smallcaps}. We
 define $| C |$, the length of $C$as a path graph. If $B'$ is another
 node on [Chain($B$)]{.smallcaps}, then by
 [SubChain($B', B$)]{.smallcaps} we refer to the subgraph of
 [Chain($B$)]{.smallcaps} path graph which contains both $B$ and $B'$.
-Accordingly, $\mathbb{C}_{B'} ((P) \ensuremath{\operatorname{BT}})$ is
-the set of all subchains of $(P) \ensuremath{\operatorname{BT}}$ rooted
+Accordingly, $\mathbb{C}_{B'} ((P) \operatorname{BT})$ is
+the set of all subchains of $(P) \operatorname{BT}$ rooted
 at $B'$. The set of all chains of $(P)
-  \ensuremath{\operatorname{BT}}$,
-$\mathbb{C}_G ((P) \ensuremath{\operatorname{BT}})$ is denoted by
+  \operatorname{BT}$,
+$\mathbb{C}_G ((P) \operatorname{BT})$ is denoted by
 $\mathbb{C}$((P)BT) or simply $\mathbb{C}$, for the sake of brevity.
 
 [\[defn-longest-chain\]]{#defn-longest-chain
@@ -197,23 +197,23 @@ $| C_1 | \neq | C_2
   |$ we say $C_1 > C_2$ if and only if $| C_1 | > | C_2 |$.
 
 If $| C_1 | = | C_2 |$ we say $C_1 > C_2$ if and only if the block
-arrival time of $\ensuremath{\operatorname{Head}} (C_1)_{}$ is less than
-the block arrival time of $\ensuremath{\operatorname{Head}} (C_2)$ as
+arrival time of $\operatorname{Head} (C_1)_{}$ is less than
+the block arrival time of $\operatorname{Head} (C_2)$ as
 defined in Definition
 [\[defn-block-time\]](#defn-block-time){reference-type="ref"
 reference="defn-block-time"}. We define the
-**[Longest-Chain($\ensuremath{\operatorname{BT}}$)]{.smallcaps}** to be
+**[Longest-Chain($\operatorname{BT}$)]{.smallcaps}** to be
 the maximum chain given by this order.
 
-[Longest-Path($\ensuremath{\operatorname{BT}}$)]{.smallcaps} returns the
+[Longest-Path($\operatorname{BT}$)]{.smallcaps} returns the
 path graph of $(P)
-  \ensuremath{\operatorname{BT}}$ which is the longest among all paths
-in $(P) \ensuremath{\operatorname{BT}}$ and has the earliest block
+  \operatorname{BT}$ which is the longest among all paths
+in $(P) \operatorname{BT}$ and has the earliest block
 arrival time as defined in Definition
 [\[defn-block-time\]](#defn-block-time){reference-type="ref"
 reference="defn-block-time"}.
-[Deepest-Leaf($\ensuremath{\operatorname{BT}}$)]{.smallcaps} returns the
-head of [Longest-Path($\ensuremath{\operatorname{BT}}$)]{.smallcaps}
+[Deepest-Leaf($\operatorname{BT}$)]{.smallcaps} returns the
+head of [Longest-Path($\operatorname{BT}$)]{.smallcaps}
 chain.
 
 Because every block in the blockchain contains a reference to its
@@ -249,10 +249,10 @@ by Polkadot RE (in contrast to Polkadot runtime).
 [\[defn-stored-value\]]{#defn-stored-value label="defn-stored-value"}The
 **StoredValue** function retrieves the value stored under a specific key
 in the state storage and is formally defined as : $$\begin{array}{cc}
-       \ensuremath{\operatorname{StoredValue}} : & \mathcal{K} \rightarrow \mathcal{V}\\
+       \operatorname{StoredValue} : & \mathcal{K} \rightarrow \mathcal{V}\\
        & k \mapsto \left\{ \begin{array}{cc}
          v & \text{if (k,v) exists in state storage}\\
-         \phi & \ensuremath{\operatorname{otherwise}}
+         \phi & \operatorname{otherwise}
        \end{array} \right.
      \end{array}$$ where $\mathcal{K} \subset \mathbb{B}$ and
 $\mathcal{V} \subset \mathbb{B}$ are respectively the set of all keys
@@ -293,23 +293,23 @@ node in the trie has at most 16 children, we represent the key as a
 sequence of 4-bit nibbles:
 
 For the purpose of labeling the branches of the Trie, the key $k$ is
-encoded to $k_{\ensuremath{\operatorname{enc}}}$ using KeyEncode
+encoded to $k_{\operatorname{enc}}$ using KeyEncode
 functions:
-$$k_{\ensuremath{\operatorname{enc}}} :=(k_{\ensuremath{\operatorname{enc}}_1}, \ldots, k_{\ensuremath{\operatorname{enc}}_{2 n}})
-    :=\ensuremath{\operatorname{KeyEncode}} (k) \label{key-encode-in-trie}$$
+$$k_{\operatorname{enc}} :=(k_{\operatorname{enc}_1}, \ldots, k_{\operatorname{enc}_{2 n}})
+    :=\operatorname{KeyEncode} (k) \label{key-encode-in-trie}$$
 such that:
-$$\ensuremath{\operatorname{KeyEncode}} (k) : \left\{ \begin{array}{lll}
-       \mathbb{B}^{} & \rightarrow & \ensuremath{\operatorname{Nibbles}}^4\\
+$$\operatorname{KeyEncode} (k) : \left\{ \begin{array}{lll}
+       \mathbb{B}^{} & \rightarrow & \operatorname{Nibbles}^4\\
        k :=(b_1, \ldots, b_n) :=& \mapsto & (b^1_1, b^2_1, b_2^1,
        b^2_2, \ldots, b^1_n, b^2_n)\\
-       &  & :=(k_{\ensuremath{\operatorname{enc}}_1}, \ldots, k_{\ensuremath{\operatorname{enc}}_{2 n}})
-     \end{array} \right.$$ where $\ensuremath{\operatorname{Nibble}}^4$
+       &  & :=(k_{\operatorname{enc}_1}, \ldots, k_{\operatorname{enc}_{2 n}})
+     \end{array} \right.$$ where $\operatorname{Nibble}^4$
 is the set of all nibbles of 4-bit arrays and $b^1_i$ and $b^2_i$ are
 4-bit nibbles, which are the big endian representations of $b_i$:
-$$(b^1_i, b^2_i) :=(b_i / 16, b_i \ensuremath{\operatorname{mod}} 16)$$
+$$(b^1_i, b^2_i) :=(b_i / 16, b_i \operatorname{mod} 16)$$
 , where mod is the remainder and / is the integer division operators.
 
-By looking at $k_{\ensuremath{\operatorname{enc}}}$ as a sequence of
+By looking at $k_{\operatorname{enc}}$ as a sequence of
 nibbles, one can walk the radix tree to reach the node identifying the
 storage value of $k$.
 
@@ -355,48 +355,48 @@ reference="defn-node-key"}.
 [\[defn-node-key\]]{#defn-node-key label="defn-node-key"}For any
 $N \in \mathcal{N}$, its key $k_N$ is divided into an **aggregated
 prefix key**,
-**$\ensuremath{\operatorname{pk}}_N^{\ensuremath{\operatorname{Agr}}}$**,
+**$\operatorname{pk}_N^{\operatorname{Agr}}$**,
 aggregated by Algorithm
 [\[algo-aggregate-key\]](#algo-aggregate-key){reference-type="ref"
 reference="algo-aggregate-key"} and a **partial key**,
-**$\ensuremath{\operatorname{pk}}_N$** of length
-$0 \leqslant l_{\ensuremath{\operatorname{pk}}_N} \leqslant
+**$\operatorname{pk}_N$** of length
+$0 \leqslant l_{\operatorname{pk}_N} \leqslant
   65535$ in nibbles such that:
-$$\ensuremath{\operatorname{pk}}_N :=(k_{\ensuremath{\operatorname{enc}}_i}, \ldots, k_{\ensuremath{\operatorname{enc}}_{i +
-     l_{\ensuremath{\operatorname{pk}}_N}}})$$ where
-$\ensuremath{\operatorname{pk}}_N$ is a suffix subsequence of $k_N$; $i$
+$$\operatorname{pk}_N :=(k_{\operatorname{enc}_i}, \ldots, k_{\operatorname{enc}_{i +
+     l_{\operatorname{pk}_N}}})$$ where
+$\operatorname{pk}_N$ is a suffix subsequence of $k_N$; $i$
 is the length of
-$\ensuremath{\operatorname{pk}}_N^{\ensuremath{\operatorname{Agr}}}$ in
+$\operatorname{pk}_N^{\operatorname{Agr}}$ in
 nibbles and so we have:
-$$\ensuremath{\operatorname{KeyEncode}} (k_N) = \ensuremath{\operatorname{pk}}_N^{\ensuremath{\operatorname{Agr}}} | | \ensuremath{\operatorname{pk}}_N =
-     (k_{\ensuremath{\operatorname{enc}}_1}, \ldots, k_{\ensuremath{\operatorname{enc}}_{i - 1}}, k_{\ensuremath{\operatorname{enc}}_i},
-     k_{\ensuremath{\operatorname{enc}}_{i + l_{\ensuremath{\operatorname{pk}}_N}}})$$
+$$\operatorname{KeyEncode} (k_N) = \operatorname{pk}_N^{\operatorname{Agr}} | | \operatorname{pk}_N =
+     (k_{\operatorname{enc}_1}, \ldots, k_{\operatorname{enc}_{i - 1}}, k_{\operatorname{enc}_i},
+     k_{\operatorname{enc}_{i + l_{\operatorname{pk}_N}}})$$
 
 Part of
-$\ensuremath{\operatorname{pk}}_N^{\ensuremath{\operatorname{Agr}}}$ is
+$\operatorname{pk}_N^{\operatorname{Agr}}$ is
 explicitly stored in $N$'s ancestors. Additionally, for each ancestor, a
 single nibble is implicitly derived while traversing from the ancestor
 to its child included in the traversal path using the
-$\ensuremath{\operatorname{Index}}_N$ function defined in Definition
+$\operatorname{Index}_N$ function defined in Definition
 [\[defn-index-function\]](#defn-index-function){reference-type="ref"
 reference="defn-index-function"}.
 
 [\[defn-index-function\]]{#defn-index-function
 label="defn-index-function"}For $N \in \mathcal{N}_b$ and $N_c$ child of
-N, we define **$\ensuremath{\operatorname{Index}}_N$** function as:
+N, we define **$\operatorname{Index}_N$** function as:
 $$\begin{array}{cc}
-       \ensuremath{\operatorname{Index}}_N : & \left\{ N_c \in \mathcal{N}|N_c  \text{is a child of
-       N} \right\} \rightarrow \ensuremath{\operatorname{Nibbles}}^4_1\\
+       \operatorname{Index}_N : & \left\{ N_c \in \mathcal{N}|N_c  \text{is a child of
+       N} \right\} \rightarrow \operatorname{Nibbles}^4_1\\
        & N_c \mapsto i_{}
      \end{array}$$ such that
-$$k_{N_c} = k_N | | i | | \ensuremath{\operatorname{pk}}_{N_c}$$
+$$k_{N_c} = k_N | | i | | \operatorname{pk}_{N_c}$$
 
 Assuming that $P_N$ is the path (see Definition
 [\[defn-path-graph\]](#defn-path-graph){reference-type="ref"
 reference="defn-path-graph"}) from the Trie root to node $N$, Algorithm
 [\[algo-aggregate-key\]](#algo-aggregate-key){reference-type="ref"
 reference="algo-aggregate-key"} rigorously demonstrates how to build
-$\ensuremath{\operatorname{pk}}^{\ensuremath{\operatorname{Agr}}}_N$
+$\operatorname{pk}^{\operatorname{Agr}}_N$
 while traversing $P_N$.
 
 \addtocounter{tmcounter}{-1}
@@ -404,22 +404,22 @@ while traversing $P_N$.
 
 [\[algo-aggregate-key\]]{#algo-aggregate-key
 label="algo-aggregate-key"}[Aggregate-Key]{.smallcaps}$(P_N : =
-      (\ensuremath{\operatorname{TrieRoot}} = N_1, \ldots, N_j = N))$
+      (\operatorname{TrieRoot} = N_1, \ldots, N_j = N))$
 
 [\[defn-node-value\]]{#defn-node-value label="defn-node-value"}A node
 $N \in \mathcal{N}$ stores the **node value**, **$v_N$**, which consists
 of the following concatenated data: $$\begin{array}{|l|l|l|}
        \hline
-       \ensuremath{\operatorname{Node}} \ensuremath{\operatorname{Header}} & \ensuremath{\operatorname{Partial}} \ensuremath{\operatorname{key}} & \ensuremath{\operatorname{Node}}
-       \ensuremath{\operatorname{Subvalue}}\\
+       \operatorname{Node} \operatorname{Header} & \operatorname{Partial} \operatorname{key} & \operatorname{Node}
+       \operatorname{Subvalue}\\
        \hline
      \end{array}$$ Formally noted as:
-$$v_N :=\ensuremath{\operatorname{Head}}_N | | \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{HE}}} (\ensuremath{\operatorname{pk}}_N) | |
-     \ensuremath{\operatorname{sv}}_N$$ where
-$\ensuremath{\operatorname{Head}}_N$,
-$\ensuremath{\operatorname{pk}}_N$,
-$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{nibbles}}}$
-and $\ensuremath{\operatorname{sv}}_N$ are defined in Definitions
+$$v_N :=\operatorname{Head}_N | | \operatorname{Enc}_{\operatorname{HE}} (\operatorname{pk}_N) | |
+     \operatorname{sv}_N$$ where
+$\operatorname{Head}_N$,
+$\operatorname{pk}_N$,
+$\operatorname{Enc}_{\operatorname{nibbles}}$
+and $\operatorname{sv}_N$ are defined in Definitions
 [\[defn-node-header\]](#defn-node-header){reference-type="ref"
 reference="defn-node-header"},
 [\[defn-node-key\]](#defn-node-key){reference-type="ref"
@@ -430,59 +430,59 @@ reference="defn-hex-encoding"} and
 reference="defn-node-subvalue"}, respectively.
 
 [\[defn-node-header\]]{#defn-node-header label="defn-node-header"}The
-**node header** of node $N$, $\ensuremath{\operatorname{Head}}_N$,
+**node header** of node $N$, $\operatorname{Head}_N$,
 consists of $l + 1 \geqslant 1$ bytes
-$\ensuremath{\operatorname{Head}}_{N, 1},
-  \ldots, \ensuremath{\operatorname{Head}}_{N, l + 1}$ such that:
+$\operatorname{Head}_{N, 1},
+  \ldots, \operatorname{Head}_{N, l + 1}$ such that:
 
 $$\begin{array}{ll}
        \hline
-       \ensuremath{\operatorname{Node}} \ensuremath{\operatorname{Type}} & \ensuremath{\operatorname{pk}} \ensuremath{\operatorname{length}}\\
+       \operatorname{Node} \operatorname{Type} & \operatorname{pk} \operatorname{length}\\
        \hline
-       \ensuremath{\operatorname{Head}}_{N, 1}^{6 - 7}_{} & \ensuremath{\operatorname{Head}}_{N, 1}^{0 - 5}_{}
+       \operatorname{Head}_{N, 1}^{6 - 7}_{} & \operatorname{Head}_{N, 1}^{0 - 5}_{}
      \end{array}  \begin{array}{|l|}
        \hline
-       \ensuremath{\operatorname{pk}} \ensuremath{\operatorname{length}} \ensuremath{\operatorname{extra}} \ensuremath{\operatorname{byte}} 1\\
+       \operatorname{pk} \operatorname{length} \operatorname{extra} \operatorname{byte} 1\\
        \hline
-       \ensuremath{\operatorname{Head}}_{N, 2}\\
+       \operatorname{Head}_{N, 2}\\
        \hline
      \end{array}  \begin{array}{|l|}
        \hline
-       \ensuremath{\operatorname{pk}} \ensuremath{\operatorname{key}} \ensuremath{\operatorname{length}} \ensuremath{\operatorname{extra}} \ensuremath{\operatorname{byte}} 2\\
+       \operatorname{pk} \operatorname{key} \operatorname{length} \operatorname{extra} \operatorname{byte} 2\\
        \hline
        \ldots .\\
        \hline
      \end{array} \ldots \begin{array}{|l|}
        \hline
-       \ensuremath{\operatorname{pk}} \ensuremath{\operatorname{length}} \ensuremath{\operatorname{extra}} \ensuremath{\operatorname{byte}} l\\
+       \operatorname{pk} \operatorname{length} \operatorname{extra} \operatorname{byte} l\\
        \hline
-       \ensuremath{\operatorname{Head}}_{N, l + 1}^{}_{}\\
+       \operatorname{Head}_{N, l + 1}^{}_{}\\
        \hline
      \end{array}$$
 
-In which $\ensuremath{\operatorname{Head}}_{N, 1}^{6 - 7}_{}$, the two
+In which $\operatorname{Head}_{N, 1}^{6 - 7}_{}$, the two
 most significant bits of the first byte of
-$\ensuremath{\operatorname{Head}}_N$ are determined as follows:
-$$\ensuremath{\operatorname{Head}}_{N, 1}^{6 - 7}_{} :=\left\{ \begin{array}{ll}
-       00 & \ensuremath{\operatorname{Special}} \ensuremath{\operatorname{case}}\\
-       01 & \ensuremath{\operatorname{Leaf}} \ensuremath{\operatorname{Node}}\\
-       10 & \ensuremath{\operatorname{Branch}} \ensuremath{\operatorname{Node}} \ensuremath{\operatorname{with}} k_N \not\in\mathcal{K}\\
-       11 & \ensuremath{\operatorname{Branch}} \ensuremath{\operatorname{Node}} \ensuremath{\operatorname{with}} k_N \in \mathcal{K}
+$\operatorname{Head}_N$ are determined as follows:
+$$\operatorname{Head}_{N, 1}^{6 - 7}_{} :=\left\{ \begin{array}{ll}
+       00 & \operatorname{Special} \operatorname{case}\\
+       01 & \operatorname{Leaf} \operatorname{Node}\\
+       10 & \operatorname{Branch} \operatorname{Node} \operatorname{with} k_N \not\in\mathcal{K}\\
+       11 & \operatorname{Branch} \operatorname{Node} \operatorname{with} k_N \in \mathcal{K}
      \end{array} \right.$$ where $\mathcal{K}$ is defined in Definition
 [\[defn-stored-value\]](#defn-stored-value){reference-type="ref"
 reference="defn-stored-value"}.
 
-$\ensuremath{\operatorname{Head}}_{N, 1}^{0 - 5}_{}$, the 6 least
+$\operatorname{Head}_{N, 1}^{0 - 5}_{}$, the 6 least
 significant bits of the first byte of
-$\ensuremath{\operatorname{Head}}_N$ are defined to be:
-$$\ensuremath{\operatorname{Head}}_{N, 1}^{0 - 5}_{} :=\left\{ \begin{array}{ll}
-       \| \ensuremath{\operatorname{pk}}_N \|_{\ensuremath{\operatorname{nib}}} & \| \ensuremath{\operatorname{pk}}_N \|_{\ensuremath{\operatorname{nib}}} < 63\\
-       63 & \| \ensuremath{\operatorname{pk}}_N \|_{\ensuremath{\operatorname{nib}}} \geqslant 63
+$\operatorname{Head}_N$ are defined to be:
+$$\operatorname{Head}_{N, 1}^{0 - 5}_{} :=\left\{ \begin{array}{ll}
+       \| \operatorname{pk}_N \|_{\operatorname{nib}} & \| \operatorname{pk}_N \|_{\operatorname{nib}} < 63\\
+       63 & \| \operatorname{pk}_N \|_{\operatorname{nib}} \geqslant 63
      \end{array} \right.$$ In which
-**$\| \ensuremath{\operatorname{pk}}_N \|_{\ensuremath{\operatorname{nib}}}$**
-is the length of $\ensuremath{\operatorname{pk}}_N$ in number nibbles.
-$\ensuremath{\operatorname{Head}}_{N, 2}, \ldots,
-  \ensuremath{\operatorname{Head}}_{N, l + 1}$ bytes are determined by
+**$\| \operatorname{pk}_N \|_{\operatorname{nib}}$**
+is the length of $\operatorname{pk}_N$ in number nibbles.
+$\operatorname{Head}_{N, 2}, \ldots,
+  \operatorname{Head}_{N, l + 1}$ bytes are determined by
 Algorithm [\[algo-pk-length\]](#algo-pk-length){reference-type="ref"
 reference="algo-pk-length"}.
 
@@ -490,8 +490,8 @@ reference="algo-pk-length"}.
 **Algorithm**
 
 [\[algo-pk-length\]]{#algo-pk-length
-label="algo-pk-length"}[Partial-Key-Length-Encoding$(\ensuremath{\operatorname{Head}}_{N,
-      1}^{6 - 7}_{}, \ensuremath{\operatorname{pk}}_N)$]{.smallcaps}
+label="algo-pk-length"}[Partial-Key-Length-Encoding$(\operatorname{Head}_{N,
+      1}^{6 - 7}_{}, \operatorname{pk}_N)$]{.smallcaps}
 
 ### Merkle Proof {#sect-merkl-proof}
 
@@ -517,35 +517,35 @@ label="defn-children-bitmap"}Suppose $N_b, N_c \in \mathcal{N}$ and
 $N_c$ is a child of $N_b$. We define where bit $b_i : = 1$ if $N$ has a
 child with partial key $i$, therefore we define **ChildrenBitmap**
 functions as follows: $$\begin{array}{cc}
-       \ensuremath{\operatorname{ChildrenBitmap}} : & \mathcal{N}_b \rightarrow \mathbb{B}_2\\
+       \operatorname{ChildrenBitmap} : & \mathcal{N}_b \rightarrow \mathbb{B}_2\\
        & N \mapsto (b_{15}, \ldots, b_8, b_7, \ldots b_0)_2
      \end{array}$$ where $$b_i :=\left\{ \begin{array}{cc}
        1 & \exists N_c \in \mathcal{N}: k_{N_c} = k_{N_b} | | i | |
-       \ensuremath{\operatorname{pk}}_{N_c}\\
+       \operatorname{pk}_{N_c}\\
        0 & \text{otherwise}
      \end{array} \right.$$
 
 [\[defn-node-subvalue\]]{#defn-node-subvalue
 label="defn-node-subvalue"}For a given node $N$, the **subvalue** of
-$N$, formally referred to as $\ensuremath{\operatorname{sv}}_N$, is
+$N$, formally referred to as $\operatorname{sv}_N$, is
 determined as follows: in a case which:
 
 $$\begin{array}{l}
-         \ensuremath{\operatorname{sv}}_N :=\\
+         \operatorname{sv}_N :=\\
          \left\{ \begin{array}{cc}
-           \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (\ensuremath{\operatorname{StoredValue}} (k_N)) & \text{N is a
+           \operatorname{Enc}_{\operatorname{SC}} (\operatorname{StoredValue} (k_N)) & \text{N is a
            leaf node}\\
-           \ensuremath{\operatorname{ChildrenBitmap}} (N)\| \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (H
-           (N_{C_1})) \ldots \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (H (N_{C_n})) | |
-           \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (\ensuremath{\operatorname{StoredValue}} (k_N))  & \text{N is a
+           \operatorname{ChildrenBitmap} (N)\| \operatorname{Enc}_{\operatorname{SC}} (H
+           (N_{C_1})) \ldots \operatorname{Enc}_{\operatorname{SC}} (H (N_{C_n})) | |
+           \operatorname{Enc}_{\operatorname{SC}} (\operatorname{StoredValue} (k_N))  & \text{N is a
            branch node}
          \end{array} \right.
        \end{array}$$
 
 Where $N_{C_1} \ldots N_{C_n}$ with $n \leqslant 16$ are the children
 nodes of the branch node $N$ and Enc$_{\textrm{SC}}$,
-$\ensuremath{\operatorname{StoredValue}}$, $H$, and
-$\ensuremath{\operatorname{ChildrenBitmap}} (N)$ are defined in
+$\operatorname{StoredValue}$, $H$, and
+$\operatorname{ChildrenBitmap} (N)$ are defined in
 Definitions [7.1](#sect-scale-codec){reference-type="ref"
 reference="sect-scale-codec"},
 [\[defn-stored-value\]](#defn-stored-value){reference-type="ref"
@@ -569,13 +569,13 @@ defined as follows: $$\begin{array}{ll}
        & H : \mathbb{B} \rightarrow \mathbb{B}_{32}\\
        & H (N) : \left\{ \begin{array}{lcl}
          v_N &  & \|v_N \|< 32\\
-         \ensuremath{\operatorname{Blake}} 2 b (v_N) &  & \|v_N \| \geqslant 32
+         \operatorname{Blake} 2 b (v_N) &  & \|v_N \| \geqslant 32
        \end{array} \right.
      \end{array}$$ Where $v_N$ is the node value of $N$ defined in
 Definition [\[defn-node-value\]](#defn-node-value){reference-type="ref"
 reference="defn-node-value"} and $0_{32 - \| v_N \|}$ an all zero byte
 array of length $32 - | | v_N | |$. The **Merkle hash** of the Trie is
-defined as: $$\ensuremath{\operatorname{Blake}} 2 b (H (R))$$ Where $R$
+defined as: $$\operatorname{Blake} 2 b (H (R))$$ Where $R$
 is the root of the Trie.
 
 State Transition {#chap-state-transit}
@@ -694,7 +694,7 @@ needs to access the runtime.
 [\[nota-call-into-runtime\]]{#nota-call-into-runtime
 label="nota-call-into-runtime"} By
 $$\text{{\textsc{Call-Runtime-Entry}}} \left( R, \mathcal{R}\mathcal{E},
-     \text{{\ttfamily{Runtime-Entry}}}, A, A_{\ensuremath{\operatorname{len}}} \right)$$
+     \text{{\ttfamily{Runtime-Entry}}}, A, A_{\operatorname{len}} \right)$$
 we refer to the task using the executor to invoke the while passing an
 $A_1, \ldots, A_n$ argument to it and using the encoding described in
 Section
@@ -769,8 +769,8 @@ reference="defn-scale-byte-array"}).
 
 [\[defn-account-key\]]{#defn-account-key
 label="defn-account-key"}**Account key
-$(\ensuremath{\operatorname{sk}}^a,
-  \ensuremath{\operatorname{pk}}^a)$** is a pair of Ristretto SR25519
+$(\operatorname{sk}^a,
+  \operatorname{pk}^a)$** is a pair of Ristretto SR25519
 used to sign extrinsics among other accounts and blance-related
 functions.
 
@@ -804,10 +804,10 @@ inclusion into future blocks. To that aim, Polkodot RE should keep a
 *transaction pool* and a *transaction queue* defined as follows:
 
 The **Transaction Queue** of a block producer node, formally referred to
-as $\ensuremath{\operatorname{TQ}}$ is a data structure which stores the
+as $\operatorname{TQ}$ is a data structure which stores the
 transactions ready to be included in a block sorted according to their
 priorities. The **Transaction Pool**, formally referred to as
-$\ensuremath{\operatorname{TP}}$, is a hash table in which Polkadot RE
+$\operatorname{TP}$, is a hash table in which Polkadot RE
 keeps the list of all valid transactions not in the transaction queue.  
 
 Algorithm
@@ -838,9 +838,9 @@ In which
     $T$ provides. Polkadot RE needs to keep track of tags that
     transaction $T$ provides as well as requires after validating it.
 
--   [Insert-At(]{.smallcaps}$\ensuremath{\operatorname{TQ}}, T, \ensuremath{\operatorname{Requires}} (R),
-      \ensuremath{\operatorname{Priority}} (R)$) places $T$ into
-    $\ensuremath{\operatorname{TQ}}$ approperietly such that the
+-   [Insert-At(]{.smallcaps}$\operatorname{TQ}, T, \operatorname{Requires} (R),
+      \operatorname{Priority} (R)$) places $T$ into
+    $\operatorname{TQ}$ approperietly such that the
     transactions providing the tags which $T$ requires or have higher
     priority than $T$ are ahead of $T$.
 
@@ -880,7 +880,7 @@ The block header is designed to be minimalistic in order to boost the
 efficiency of the light clients. It is defined formally as follows:
 
 [\[defn-block-header\]]{#defn-block-header label="defn-block-header"}The
-**header of block B**, **$\ensuremath{\operatorname{Head}} (B)$** is a
+**header of block B**, **$\operatorname{Head} (B)$** is a
 5-tuple containing the following elements:
 
 -   **[parent\_hash:]{.sans-serif}** is the 32-byte Blake2b hash (see
@@ -916,7 +916,7 @@ efficiency of the light clients. It is defined formally as follows:
 label="defn-block-header-hash"}The **Block Header Hash of Block $B$**,
 **$H_h (B)$**, is the hash of the header of block $B$ encoded by simple
 codec:"
-$$H_h (B) :=\ensuremath{\operatorname{Blake}} 2 b (\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (\ensuremath{\operatorname{Head}}
+$$H_h (B) :=\operatorname{Blake} 2 b (\operatorname{Enc}_{\operatorname{SC}} (\operatorname{Head}
      (B)))$$
 
 #### Justified Block Header
@@ -928,10 +928,10 @@ blockchain. It contains the following parts:
 -   **[**block\_header**]{.sans-serif}** the complete block header as
     defined in Section [3.3.1.1](#block){reference-type="ref"
     reference="block"} and denoted by
-    $\ensuremath{\operatorname{Head}} (B)$.
+    $\operatorname{Head} (B)$.
 
 -   **[justification]{.sans-serif}**: as defined by the consensus
-    specification indicated by $\ensuremath{\operatorname{Just}} (B)$ .
+    specification indicated by $\operatorname{Just} (B)$ .
 
 -   **[authority Ids]{.sans-serif}**: This is the list of the Ids of
     authorities, which have voted for the block to be stored and is
@@ -973,8 +973,8 @@ encoded array of byte arrays. Formally:
 
 [\[defn-block-body\]]{#defn-block-body label="defn-block-body"}The
 **body of Block** $B$ represented as
-**$\ensuremath{\operatorname{Body}} (B)$** is defined to be
-$$\ensuremath{\operatorname{Body}} (B) :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (E_1, \ldots, E_n)$$
+**$\operatorname{Body} (B)$** is defined to be
+$$\operatorname{Body} (B) :=\operatorname{Enc}_{\operatorname{SC}} (E_1, \ldots, E_n)$$
 Where each $E_i \in \mathbb{B}$ is a SCALE encoded extrinsic.
 
 ### Block Submission {#sect-block-submission}
@@ -1006,11 +1006,11 @@ the block:
 \addtocounter{tmcounter}{-1}
 **Algorithm**
 
-[Import-and-Validate-Block($B, \ensuremath{\operatorname{Just}} (B)$)]{.smallcaps}
+[Import-and-Validate-Block($B, \operatorname{Just} (B)$)]{.smallcaps}
 
 For the definition of the finality and the finalized block see Section
 [5.2](#sect-finality){reference-type="ref" reference="sect-finality"}.
-$\ensuremath{\operatorname{PBT}}$ is the pruned block tree defined in
+$\operatorname{PBT}$ is the pruned block tree defined in
 Definition [\[defn-block-tree\]](#defn-block-tree){reference-type="ref"
 reference="defn-block-tree"}. [Verify-Authorship-Right]{.smallcaps} is
 part of the block production consensus protocol and is described in
@@ -1054,12 +1054,12 @@ a network private key and a network public key representing an ED25519
 key pair [@liusvaara_edwards-curve_2017].
 
 **Peer Identity**, formally noted by
-$P_{\ensuremath{\operatorname{id}}}$ is derived from the node's public
+$P_{\operatorname{id}}$ is derived from the node's public
 key as follows:
 
  and uniquely identifies a node on the network.
 
-Because the $P_{\ensuremath{\operatorname{id}}}$ is derived from the
+Because the $P_{\operatorname{id}}$ is derived from the
 node's public key, running two or more instances of Polkadot network
 using the same network key is contrary to the Polkadot protocol.
 
@@ -1226,8 +1226,8 @@ A **block producer**, noted by $\mathcal{P}_j$, is a node running
 Polkadot RE which is authorized to keep a transaction queue and which
 gets a turn in producing blocks.
 
-**Block authoring session key pair $(\ensuremath{\operatorname{sk}}^s_j,
-  \ensuremath{\operatorname{pk}}^s_j)$** is an SR25519 key pair which
+**Block authoring session key pair $(\operatorname{sk}^s_j,
+  \operatorname{pk}^s_j)$** is an SR25519 key pair which
 the block producer $\mathcal{P}_j$ signs by their account key (see
 Definition
 [\[defn-account-key\]](#defn-account-key){reference-type="ref"
@@ -1240,7 +1240,7 @@ reference="algo-block-production-lottery"}.
 production **epoch**, formally referred to as $\mathcal{E}$ is a period
 with pre-known starting time and fixed length during which the set of
 block producers stays constant. Epochs are indexed sequentially, and we
-refer to the $n^{\ensuremath{\operatorname{th}}}$ epoch since genesis by
+refer to the $n^{\operatorname{th}}$ epoch since genesis by
 $\mathcal{E}_n$. Each epoch is divided into equal length periods known
 as block production **slots**, sequentially indexed in each epoch. The
 index of each slot is called **slot number**. Each slot is awarded to a
@@ -1248,8 +1248,8 @@ subset of block producers during which they are allowed to generate a
 block.
 
 [\[note-slot\]]{#note-slot label="note-slot"}We refer to the number of
-slots in epoch $\mathcal{E}_n$ by $\ensuremath{\operatorname{sc}}_n$.
-$\ensuremath{\operatorname{sc}}_n$ is set to the field in the returned
+slots in epoch $\mathcal{E}_n$ by $\operatorname{sc}_n$.
+$\operatorname{sc}_n$ is set to the field in the returned
 data from the call of the Runtime entry (see
 [12.2.5](#sect-rte-babeapi-epoch){reference-type="ref"
 reference="sect-rte-babeapi-epoch"}) at the beginning of each epoch. For
@@ -1265,10 +1265,10 @@ produced during an specific epoch.
 [\[defn-epoch-subchain\]]{#defn-epoch-subchain
 label="defn-epoch-subchain"} By [SubChain($\mathcal{E}_n$)]{.smallcaps}
 for epoch $\mathcal{E}_n$, we refer to the path graph of
-$\ensuremath{\operatorname{BT}}$ which contains all the blocks generated
+$\operatorname{BT}$ which contains all the blocks generated
 during the slots of epoch $\mathcal{E}_n$. When there is more than one
 block generated at a slot, we choose the one which is also on
-[Longest-Chain($\ensuremath{\operatorname{BT}}$)]{.smallcaps}.
+[Longest-Chain($\operatorname{BT}$)]{.smallcaps}.
 
 ### Block Production Lottery
 
@@ -1286,7 +1286,7 @@ run Algorithm
 [\[algo-block-production-lottery\]](#algo-block-production-lottery){reference-type="ref"
 reference="algo-block-production-lottery"} to identify the slots it is
 awarded. These are the slots during which the block producer is allowed
-to build a block. The $\ensuremath{\operatorname{sk}}$ is the block
+to build a block. The $\operatorname{sk}$ is the block
 producer lottery secret key and $n$ is the index of epoch for whose
 slots the block producer is running the lottery.
 
@@ -1294,7 +1294,7 @@ slots the block producer is running the lottery.
 **Algorithm**
 
 [\[algo-block-production-lottery\]]{#algo-block-production-lottery
-label="algo-block-production-lottery"}[Block-production-lottery]{.smallcaps}($\ensuremath{\operatorname{sk}}
+label="algo-block-production-lottery"}[Block-production-lottery]{.smallcaps}($\operatorname{sk}
       :$session secret key of the producer,
 
 $n :$epoch index)
@@ -1319,7 +1319,7 @@ following definitions:
 
 [\[slot-time-cal-tail\]]{#slot-time-cal-tail
 label="slot-time-cal-tail"}The **slot tail**, formally referred to by
-$\ensuremath{\operatorname{SlTl}}$ represents the number of on-chain
+$\operatorname{SlTl}$ represents the number of on-chain
 blocks that are used to estimate the slot time of a given slot. This
 number is set to be 1200.
 
@@ -1371,7 +1371,7 @@ reference="defn-babe-header"}.
 
 The [\[defn-babe-header\]]{#defn-babe-header
 label="defn-babe-header"}**Babe Header** of block B, referred to
-formally by **$H_{\ensuremath{\operatorname{Babe}}} (B)$** is a tuple
+formally by **$H_{\operatorname{Babe}} (B)$** is a tuple
 that consists of the following components: $$(\pi, d, j, s, w)$$ in
 which:
 
@@ -1384,16 +1384,16 @@ which:
 
  
 
-The block producer includes $H_{\ensuremath{\operatorname{Babe}}} (B)$
-as a log in $H_d (B)$ and sign $\ensuremath{\operatorname{Head}} (B)$ as
+The block producer includes $H_{\operatorname{Babe}} (B)$
+as a log in $H_d (B)$ and sign $\operatorname{Head} (B)$ as
 defined in Definition
 [\[defn-block-signature\]](#defn-block-signature){reference-type="ref"
 reference="defn-block-signature"}
 
 [\[block-signature\]]{#block-signature label="block-signature"}The
 **Block Signature** noted by $S_B$ is computed as
-$\ensuremath{\operatorname{Sig}}_{\ensuremath{\operatorname{SR}} 25519, \ensuremath{\operatorname{sk}}^s_j}
-  (\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (\ensuremath{\operatorname{Black}} 2 s (\ensuremath{\operatorname{Head}} (B_{}))))$
+$\operatorname{Sig}_{\operatorname{SR} 25519, \operatorname{sk}^s_j}
+  (\operatorname{Enc}_{\operatorname{SC}} (\operatorname{Black} 2 s (\operatorname{Head} (B_{}))))$
 
  
 
@@ -1401,9 +1401,9 @@ $\ensuremath{\operatorname{Sig}}_{\ensuremath{\operatorname{SR}} 25519, \ensurem
 **Algorithm**
 
 [\[algo-block-production\]]{#algo-block-production
-label="algo-block-production"}[Invoke-Block-Authoring]{.smallcaps}($\ensuremath{\operatorname{sk}}$,
+label="algo-block-production"}[Invoke-Block-Authoring]{.smallcaps}($\operatorname{sk}$,
 pk, $n$,
-$\ensuremath{\operatorname{BT}} : \ensuremath{\operatorname{Current}} \ensuremath{\operatorname{Block}} \ensuremath{\operatorname{Tree}}$)
+$\operatorname{BT} : \operatorname{Current} \operatorname{Block} \operatorname{Tree}$)
 
 ### Epoch Randomness {#sect-epoch-randomness}
 
@@ -1446,11 +1446,11 @@ reference="algo-verify-authorship-right"} where:
     reference="defn-block-time"}.
 
 -   $H_d (B)$ is the digest sub-component of
-    $\ensuremath{\operatorname{Head}} (B)$ defined in Definition
+    $\operatorname{Head} (B)$ defined in Definition
     [\[defn-block-header\]](#defn-block-header){reference-type="ref"
     reference="defn-block-header"}.
 
--   $\ensuremath{\operatorname{AuthorityDirectory}}^{\mathcal{E}_c}$ is
+-   $\operatorname{AuthorityDirectory}^{\mathcal{E}_c}$ is
     the set of Authority ID for block producers of epoch
     $\mathcal{E}_c$.
 
@@ -1462,7 +1462,7 @@ reference="algo-verify-authorship-right"} where:
 **Algorithm**
 
 [\[algo-verify-authorship-right\]]{#algo-verify-authorship-right
-label="algo-verify-authorship-right"}[Verify-Authorship-Right]{.smallcaps}($\ensuremath{\operatorname{Head}}_s
+label="algo-verify-authorship-right"}[Verify-Authorship-Right]{.smallcaps}($\operatorname{Head}_s
       (B)$: The header of the block being verified)
 
 Algorithm
@@ -1474,7 +1474,7 @@ verification process, when a node is importing a block, in which:
     [\[algo-epoch-randomness\]](#algo-epoch-randomness){reference-type="ref"
     reference="algo-epoch-randomness"}.
 
--   $H_{\ensuremath{\operatorname{BABE}}} (B)$ is the BABE header
+-   $H_{\operatorname{BABE}} (B)$ is the BABE header
     defined in Definition
     [\[defn-babe-header\]](#defn-babe-header){reference-type="ref"
     reference="defn-babe-header"}.
@@ -1513,12 +1513,12 @@ reference="algo-build-block"}.
 **Algorithm**
 
 [\[algo-build-block\]]{#algo-build-block
-label="algo-build-block"}[Build-Block]{.smallcaps}($C_{\ensuremath{\operatorname{Best}}}$:
+label="algo-build-block"}[Build-Block]{.smallcaps}($C_{\operatorname{Best}}$:
 The chain where at its head, the block to be constructed,
 
 s: Slot number)
 
-$\ensuremath{\operatorname{Head}} (B)$ is defined in Definition
+$\operatorname{Head} (B)$ is defined in Definition
 [\[defn-block-header\]](#defn-block-header){reference-type="ref"
 reference="defn-block-header"}. [Block-Inherents-Data]{.smallcaps},
 [Inherents-Queue]{.smallcaps}, [Block-Is-Full]{.smallcaps} and
@@ -1537,9 +1537,9 @@ perform to successfully participate in the block finalization process.
 ### Preliminaries
 
 A **GRANDPA Voter**, $v$, is represented by a key pair
-$(k^{\ensuremath{\operatorname{pr}}}_v, v_{\ensuremath{\operatorname{id}}})$
-where $k_v^{\ensuremath{\operatorname{pr}}}$ represents its private key
-which is an $\ensuremath{\operatorname{ED}} 25519$ private key, is a
+$(k^{\operatorname{pr}}_v, v_{\operatorname{id}})$
+where $k_v^{\operatorname{pr}}$ represents its private key
+which is an $\operatorname{ED} 25519$ private key, is a
 node running GRANDPA protocol, and broadcasts votes to finalize blocks
 in a Polkadot RE - based chain. The **set of all GRANDPA voters** is
 indicated by $\mathbb{V}$. For a given block B, we have
@@ -1548,13 +1548,13 @@ $\mathtt{grandpa\_authorities}$ is the entry into runtime described in
 Section [12.2.6](#sect-rte-grandpa-auth){reference-type="ref"
 reference="sect-rte-grandpa-auth"}.
 
-**GRANDPA state**, $\ensuremath{\operatorname{GS}}$, is defined as
-$$\ensuremath{\operatorname{GS}} :=\{\mathbb{V}, \ensuremath{\operatorname{id}}_{\mathbb{V}}, r\}$$
+**GRANDPA state**, $\operatorname{GS}$, is defined as
+$$\operatorname{GS} :=\{\mathbb{V}, \operatorname{id}_{\mathbb{V}}, r\}$$
 where:
 
 $\mathbb{V}$: is the set of voters.
 
-**$\mathbb{V}_{\ensuremath{\operatorname{id}}}$**: is an incremental
+**$\mathbb{V}_{\operatorname{id}}$**: is an incremental
 counter tracking membership, which changes in V.
 
 **r**: is the voting round number.
@@ -1575,8 +1575,8 @@ Voters engage in a maximum of two sub-rounds of voting for each round
 $r$. The first sub-round is called **pre-vote** and the second sub-round
 is called **pre-commit**.
 
-By **$V_v^{r, \ensuremath{\operatorname{pv}}}$** and
-**$V_v^{r, \ensuremath{\operatorname{pc}}}$** we refer to the vote cast
+By **$V_v^{r, \operatorname{pv}}$** and
+**$V_v^{r, \operatorname{pc}}$** we refer to the vote cast
 by voter $v$ in round $r$ (for block $B$) during the pre-vote and the
 pre-commit sub-round respectively.
 
@@ -1590,89 +1590,89 @@ Voter $v$ **equivocates** if they broadcast two or more valid votes to
 blocks not residing on the same branch of the block tree during one
 voting sub-round. In such a situation, we say that $v$ is an
 **equivocator** and any vote
-$V_v^{r, \ensuremath{\operatorname{stage}}} (B)$ cast by $v$ in that
+$V_v^{r, \operatorname{stage}} (B)$ cast by $v$ in that
 round is an **equivocatory vote** and
-$$\mathcal{E}^{r, \ensuremath{\operatorname{stage}}}$$ represents the
+$$\mathcal{E}^{r, \operatorname{stage}}$$ represents the
 set of all equivocators voters in sub-round
-"$\ensuremath{\operatorname{stage}}$" of round $r$. When we want to
+"$\operatorname{stage}$" of round $r$. When we want to
 refer to the number of equivocators whose equivocation has been observed
 by voter $v$ we refer to it by:
-$$\mathcal{E}^{r, \ensuremath{\operatorname{stage}}}_{\ensuremath{\operatorname{obs}} (v)}$$
+$$\mathcal{E}^{r, \operatorname{stage}}_{\operatorname{obs} (v)}$$
 
-A vote $V_v^{r, \ensuremath{\operatorname{stage}}} = V (B)$ is
+A vote $V_v^{r, \operatorname{stage}} = V (B)$ is
 **invalid** if
 
 -   $H (B)$ does not correspond to a valid block;
 
 -   $B$ is not an (eventual) descendant of a previously finalized block;
 
--   $M^{r, \ensuremath{\operatorname{stage}}}_v$ does not bear a valid
+-   $M^{r, \operatorname{stage}}_v$ does not bear a valid
     signature;
 
--   $\ensuremath{\operatorname{id}}_{\mathbb{V}}$ does not match the
+-   $\operatorname{id}_{\mathbb{V}}$ does not match the
     current $\mathbb{V}$;
 
--   If $V_v^{r, \ensuremath{\operatorname{stage}}}$ is an equivocatory
+-   If $V_v^{r, \operatorname{stage}}$ is an equivocatory
     vote.
 
 For validator v, **the set of observed direct votes for Block $B$ in
 round $r$**, formally denoted by
-$\ensuremath{\operatorname{VD}}^{r, \ensuremath{\operatorname{stage}}}_{\ensuremath{\operatorname{obs}}
+$\operatorname{VD}^{r, \operatorname{stage}}_{\operatorname{obs}
   (v)}^{}_{} (B)$ is equal to the union of:
 
--   set of valid votes $V^{r, \ensuremath{\operatorname{stage}}}_{v_i}$
+-   set of valid votes $V^{r, \operatorname{stage}}_{v_i}$
     cast in round $r$ and received by v such that
-    $V^{r, \ensuremath{\operatorname{stage}}}_{v_i} = V (B)$.
+    $V^{r, \operatorname{stage}}_{v_i} = V (B)$.
 
 We refer to **the set of total votes observed by voter $v$ in sub-round
-"$\ensuremath{\operatorname{stage}}$" of round $r$** by **$V^{r,
-  \ensuremath{\operatorname{stage}}}_{\ensuremath{\operatorname{obs}} (v)}^{}_{}$**.
+"$\operatorname{stage}$" of round $r$** by **$V^{r,
+  \operatorname{stage}}_{\operatorname{obs} (v)}^{}_{}$**.
 
 The **set of all observed votes by $v$ in the sub-round stage of round
 $r$ for block $B$**,
-**$V^{r, \ensuremath{\operatorname{stage}}}_{\ensuremath{\operatorname{obs}} (v)}
+**$V^{r, \operatorname{stage}}_{\operatorname{obs} (v)}
   (B)$** is equal to all of the observed direct votes casted for block
 $B$ and all of the $B$'s descendents defined formally as:
-$$V^{r, \ensuremath{\operatorname{stage}}}_{\ensuremath{\operatorname{obs}} (v)} (B) :=\bigcup_{v_i \in
-     \mathbb{V}, B \geqslant B'} \ensuremath{\operatorname{VD}}^{r, \ensuremath{\operatorname{stage}}}_{\ensuremath{\operatorname{obs}} (v)}
+$$V^{r, \operatorname{stage}}_{\operatorname{obs} (v)} (B) :=\bigcup_{v_i \in
+     \mathbb{V}, B \geqslant B'} \operatorname{VD}^{r, \operatorname{stage}}_{\operatorname{obs} (v)}
      (B')_{}^{}_{}$$ The **total number of observed votes for Block $B$
 in round $r$** is defined to be the size of that set plus the total
 number of equivocators voters:
-$$\#V^{r, \ensuremath{\operatorname{stage}}}_{\ensuremath{\operatorname{obs}} (v)} (B) = |V^{r,
-     \ensuremath{\operatorname{stage}}}_{\ensuremath{\operatorname{obs}} (v)} (B) | + | \mathcal{E}^{r,
-     \ensuremath{\operatorname{stage}}}_{\ensuremath{\operatorname{obs}} (v)} |$$
+$$\#V^{r, \operatorname{stage}}_{\operatorname{obs} (v)} (B) = |V^{r,
+     \operatorname{stage}}_{\operatorname{obs} (v)} (B) | + | \mathcal{E}^{r,
+     \operatorname{stage}}_{\operatorname{obs} (v)} |$$
 
 The current **pre-voted** block
-$B^{r, \ensuremath{\operatorname{pv}}}_v$ is the block with
-$$H_n (B^{r, \ensuremath{\operatorname{pv}}}_v) = \ensuremath{\operatorname{Max}} (H_n (B) | \forall B :
-     \#V_{\ensuremath{\operatorname{obs}} (v)}^{r, \ensuremath{\operatorname{pv}}} (B) \geqslant 2 / 3|\mathbb{V}|)$$
+$B^{r, \operatorname{pv}}_v$ is the block with
+$$H_n (B^{r, \operatorname{pv}}_v) = \operatorname{Max} (H_n (B) | \forall B :
+     \#V_{\operatorname{obs} (v)}^{r, \operatorname{pv}} (B) \geqslant 2 / 3|\mathbb{V}|)$$
 
-Note that for genesis block $\ensuremath{\operatorname{Genesis}}$ we
-always have $\#V_{\ensuremath{\operatorname{obs}}
-(v)}^{r, \ensuremath{\operatorname{pv}}} (B) = | \mathbb{V} |$.
+Note that for genesis block $\operatorname{Genesis}$ we
+always have $\#V_{\operatorname{obs}
+(v)}^{r, \operatorname{pv}} (B) = | \mathbb{V} |$.
 
  
 
 Finally, we define when a voter $v$ see a round as completable, that is
-when they are confident that $B_v^{r, \ensuremath{\operatorname{pv}}}$
+when they are confident that $B_v^{r, \operatorname{pv}}$
 is an upper bound for what is going to be finalised in this round.  
 
 [\[defn-grandpa-completable\]]{#defn-grandpa-completable
 label="defn-grandpa-completable"}We say that round $r$ is
 **completable** if
-$|V^{r, \ensuremath{\operatorname{pc}}}_{\ensuremath{\operatorname{obs}} (v)} |
-  +\mathcal{E}^{r, \ensuremath{\operatorname{pc}}}_{\ensuremath{\operatorname{obs}} (v)} > \frac{2}{3} \mathbb{V}$
-and for all $B' > B_v^{r, \ensuremath{\operatorname{pv}}}$:
+$|V^{r, \operatorname{pc}}_{\operatorname{obs} (v)} |
+  +\mathcal{E}^{r, \operatorname{pc}}_{\operatorname{obs} (v)} > \frac{2}{3} \mathbb{V}$
+and for all $B' > B_v^{r, \operatorname{pv}}$:
 $$\begin{array}{l}
-       |V^{r, \ensuremath{\operatorname{pc}}}_{\ensuremath{\operatorname{obs}} (v)} | -\mathcal{E}^{r,
-       \ensuremath{\operatorname{pc}}}_{\ensuremath{\operatorname{obs}} (v)} - |V^{r, \ensuremath{\operatorname{pc}}}_{\ensuremath{\operatorname{obs}}
+       |V^{r, \operatorname{pc}}_{\operatorname{obs} (v)} | -\mathcal{E}^{r,
+       \operatorname{pc}}_{\operatorname{obs} (v)} - |V^{r, \operatorname{pc}}_{\operatorname{obs}
        (v)_{}} (B') | > \frac{2}{3} |\mathbb{V}|
      \end{array}$$
 
 Note that in practice we only need to check the inequality for those
 $B' >
-B_v^{r, \ensuremath{\operatorname{pv}}}$ where
-$|V^{r, \ensuremath{\operatorname{pc}}}_{\ensuremath{\operatorname{obs}} (v)_{}} (B')
+B_v^{r, \operatorname{pv}}$ where
+$|V^{r, \operatorname{pc}}_{\operatorname{obs} (v)_{}} (B')
 | > 0$.
 
  
@@ -1687,25 +1687,25 @@ reference="algo-grandpa-round"} for more details). These messages are
 specified in this section.
 
 A vote casted by voter $v$ should be broadcasted as a **message
-$M^{r, \ensuremath{\operatorname{stage}}}_v$** to the network by voter
+$M^{r, \operatorname{stage}}_v$** to the network by voter
 $v$ with the following structure:
-$$M^{r, \ensuremath{\operatorname{stage}}}_v :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (r,
-     \ensuremath{\operatorname{id}}_{\mathbb{V}}, \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (\ensuremath{\operatorname{stage}}, V_v^{r,
-     \ensuremath{\operatorname{stage}}}, \ensuremath{\operatorname{Sig}}_{\ensuremath{\operatorname{ED}} 25519} (\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}}
-     (\ensuremath{\operatorname{stage}}, V_v^{r, \ensuremath{\operatorname{stage}}}, r, V_{\ensuremath{\operatorname{id}}}), v_{\ensuremath{\operatorname{id}}})$$
+$$M^{r, \operatorname{stage}}_v :=\operatorname{Enc}_{\operatorname{SC}} (r,
+     \operatorname{id}_{\mathbb{V}}, \operatorname{Enc}_{\operatorname{SC}} (\operatorname{stage}, V_v^{r,
+     \operatorname{stage}}, \operatorname{Sig}_{\operatorname{ED} 25519} (\operatorname{Enc}_{\operatorname{SC}}
+     (\operatorname{stage}, V_v^{r, \operatorname{stage}}, r, V_{\operatorname{id}}), v_{\operatorname{id}})$$
 Where:
 
 [\[defn-grandpa-justification\]]{#defn-grandpa-justification
 label="defn-grandpa-justification"}The **justification for block B in
 round $r$** of GRANDPA protocol defined $J^r (B)$ is a vector of pairs
 of the type:
-$$(V (B'), (\ensuremath{\operatorname{Sign}}^{r, \ensuremath{\operatorname{pc}}}_{v_i} (B'), v_{\ensuremath{\operatorname{id}}}))$$
+$$(V (B'), (\operatorname{Sign}^{r, \operatorname{pc}}_{v_i} (B'), v_{\operatorname{id}}))$$
 in which either $$B' \geqslant B$$ or
-$V^{r, \ensuremath{\operatorname{pc}}}_{v_i} (B')$ is an equivocatory
+$V^{r, \operatorname{pc}}_{v_i} (B')$ is an equivocatory
 vote.
 
 In all cases,
-$\ensuremath{\operatorname{Sign}}^{r, \ensuremath{\operatorname{pc}}}_{v_i} (B')$
+$\operatorname{Sign}^{r, \operatorname{pc}}_{v_i} (B')$
 is the signature of voter $v_i$ broadcasted during the pre-commit
 sub-round of round r.
 
@@ -1713,12 +1713,12 @@ We say $J^r (B)$ **justifies the finalization** of $B$ if the number of
 valid signatures in $J^r (B)$ is greater than $\frac{2}{3}
   |\mathbb{V}_B |$.
 
-**$\ensuremath{\operatorname{GRANDPA}}$ finalizing message for block $B$
+**$\operatorname{GRANDPA}$ finalizing message for block $B$
 in round $r$** represented as
-**$M_v^{r, \ensuremath{\operatorname{Fin}}}$(B)** is a message
+**$M_v^{r, \operatorname{Fin}}$(B)** is a message
 broadcasted by voter $v$ to the network indicating that voter $v$ has
 finalized block $B$ in round $r$. It has the following structure:
-$$M^{r, \ensuremath{\operatorname{Fin}}}_v (B) :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (r, V (B), J^r
+$$M^{r, \operatorname{Fin}}_v (B) :=\operatorname{Enc}_{\operatorname{SC}} (r, V (B), J^r
      (B))$$ in which $J^r (B)$ in the justification defined in
 Definition
 [\[defn-grandpa-justification\]](#defn-grandpa-justification){reference-type="ref"
@@ -1737,7 +1737,7 @@ the network.
 As instructed in Algorithm
 [\[alg-join-leave-grandpa\]](#alg-join-leave-grandpa){reference-type="ref"
 reference="alg-join-leave-grandpa"}, whenever the membership of GRANDPA
-voters changes, $r$ is set to 0 and $V_{\ensuremath{\operatorname{id}}}$
+voters changes, $r$ is set to 0 and $V_{\operatorname{id}}$
 needs to be incremented.
 
 \addtocounter{tmcounter}{-1}
@@ -1791,17 +1791,17 @@ label="defn-finalized-block"}A Polkadot relay chain node n should
 consider block $B$ as **finalized** if any of the following criteria
 holds for $B' \geqslant B$:
 
--   $V^{r, \ensuremath{\operatorname{pc}}}_{\ensuremath{\operatorname{obs}} (n)}^{}_{} (B') > 2
+-   $V^{r, \operatorname{pc}}_{\operatorname{obs} (n)}^{}_{} (B') > 2
         / 3 |\mathbb{V}_{B'} |$.
 
--   it receives a $M_v^{r, \ensuremath{\operatorname{Fin}}} (B')$
+-   it receives a $M_v^{r, \operatorname{Fin}} (B')$
     message in which $J^r (B)$ justifies the finalization (according to
     Definition
     [\[defn-grandpa-justification\]](#defn-grandpa-justification){reference-type="ref"
     reference="defn-grandpa-justification"}).
 
 -   it receives a block data message for $B'$ with
-    $\ensuremath{\operatorname{Just}} (B')$ defined in Section
+    $\operatorname{Just} (B')$ defined in Section
     [\[sect-justified-block-header\]](#sect-justified-block-header){reference-type="ref"
     reference="sect-justified-block-header"} which justifies the
     finalization.
@@ -1858,11 +1858,11 @@ Storage.
 label="defn-scale-byte-array"}The **SCALE codec** for **Byte array** $A$
 such that $$A :=b_1 b_2 \ldots b_n$$ such that $n < 2^{536}$ is a byte
 array refered to
-$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}}
+$\operatorname{Enc}_{\operatorname{SC}}
   (A)$ and defined as:
-$$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (A) :=\ensuremath{\operatorname{Enc}}^{\ensuremath{\operatorname{Len}}}_{\ensuremath{\operatorname{SC}}}
+$$\operatorname{Enc}_{\operatorname{SC}} (A) :=\operatorname{Enc}^{\operatorname{Len}}_{\operatorname{SC}}
      (\| A \|) | | A$$ where
-$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}}^{\ensuremath{\operatorname{Len}}}$
+$\operatorname{Enc}_{\operatorname{SC}}^{\operatorname{Len}}$
 is defined in Definition
 [\[defn-sc-len-encoding\]](#defn-sc-len-encoding){reference-type="ref"
 reference="defn-sc-len-encoding"}.
@@ -1870,8 +1870,8 @@ reference="defn-sc-len-encoding"}.
 [\[defn-scale-tuple\]]{#defn-scale-tuple label="defn-scale-tuple"}The
 **SCALE codec** for **Tuple** $T$ such that: $$T :=(A_1, \ldots, A_n)$$
 Where $A_i$'s are values of **different types**, is defined as:
-$$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (T) :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (A_1) | |
-     \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (A_2) | | \ldots | | \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (A_n)$$
+$$\operatorname{Enc}_{\operatorname{SC}} (T) :=\operatorname{Enc}_{\operatorname{SC}} (A_1) | |
+     \operatorname{Enc}_{\operatorname{SC}} (A_2) | | \ldots | | \operatorname{Enc}_{\operatorname{SC}} (A_n)$$
 
 In case of a tuple (or struct), the knowledge of the shape of data is
 not encoded even though it is necessary for decoding. The decoder needs
@@ -1881,38 +1881,38 @@ is happenning.
 [\[defn-varrying-data-type\]]{#defn-varrying-data-type
 label="defn-varrying-data-type"}We define a **varying data** type to be
 an ordered set of data types $$\mathcal{T}= \{ T_1, \ldots, T_n \}$$ A
-value $\ensuremath{\boldsymbol{A}}$ of varying date type is a pair
-$(A_{\ensuremath{\operatorname{Type}}},
-  A_{\ensuremath{\operatorname{Value}}})$ where
-$A_{\ensuremath{\operatorname{Type}}} = T_i$ for some $T_i \in
-  \mathcal{T}$ and $A_{\ensuremath{\operatorname{Value}}}$ is its value
+value $\boldsymbol{A}$ of varying date type is a pair
+$(A_{\operatorname{Type}},
+  A_{\operatorname{Value}})$ where
+$A_{\operatorname{Type}} = T_i$ for some $T_i \in
+  \mathcal{T}$ and $A_{\operatorname{Value}}$ is its value
 of type $T_i$. We define
-$\ensuremath{\operatorname{idx}} (T_i) = i - 1.$
+$\operatorname{idx} (T_i) = i - 1.$
 
 In particular, we define **optional type** to be $\mathcal{O}= \{
-  \ensuremath{\operatorname{None}}, T_2 \}$ for some data type $T_2$
-where $\ensuremath{\operatorname{idx}}
-  (\ensuremath{\operatorname{None}}) = 0$
-$(\ensuremath{\operatorname{None}}, \phi)$ is the only possible value,
+  \operatorname{None}, T_2 \}$ for some data type $T_2$
+where $\operatorname{idx}
+  (\operatorname{None}) = 0$
+$(\operatorname{None}, \phi)$ is the only possible value,
 when the data is of type None and a codec value is one byte of 0 value.
 
 [\[defn-scale-variable-type\]]{#defn-scale-variable-type
 label="defn-scale-variable-type"}Scale coded for value **$A =
-  (A_{\ensuremath{\operatorname{Type}}}, A_{\ensuremath{\operatorname{Value}}})$
+  (A_{\operatorname{Type}}, A_{\operatorname{Value}})$
 of varying data type** $\mathcal{T}= \{
   T_1, \ldots, T_n \}$
-$$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (A) :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (\ensuremath{\operatorname{Idx}}
-     (A_{\ensuremath{\operatorname{Type}}})) | | \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (A_{\ensuremath{\operatorname{Value}}})$$
-Where $\ensuremath{\operatorname{Idx}}$ is encoded in a fixed length
+$$\operatorname{Enc}_{\operatorname{SC}} (A) :=\operatorname{Enc}_{\operatorname{SC}} (\operatorname{Idx}
+     (A_{\operatorname{Type}})) | | \operatorname{Enc}_{\operatorname{SC}} (A_{\operatorname{Value}})$$
+Where $\operatorname{Idx}$ is encoded in a fixed length
 integer determining the type of $A$.
 
 In particular, for the optional type defined in Definition
 [\[defn-varrying-data-type\]](#defn-varrying-data-type){reference-type="ref"
 reference="defn-varrying-data-type"}, we have:
-$$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} ((\ensuremath{\operatorname{None}}, \phi)) :=0_{\mathbb{B}_1}$$
+$$\operatorname{Enc}_{\operatorname{SC}} ((\operatorname{None}, \phi)) :=0_{\mathbb{B}_1}$$
 
 SCALE codec does not encode the correspondence between the value of
-$\ensuremath{\operatorname{Idx}}$ defined in Definition
+$\operatorname{Idx}$ defined in Definition
 [\[defn-scale-variable-type\]](#defn-scale-variable-type){reference-type="ref"
 reference="defn-scale-variable-type"} and the data type it represents;
 the decoder needs prior knowledge of such correspondence to decode the
@@ -1922,34 +1922,34 @@ data.
 **SCALE codec** for **sequence** $S$ such that: $$S :=A_1, \ldots, A_n$$
 where $A_i$'s are values of **the same type** (and the decoder is unable
 to infer value of $n$ from the context) is defined as:
-$$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (S) :=\ensuremath{\operatorname{Enc}}^{\ensuremath{\operatorname{Len}}}_{\ensuremath{\operatorname{SC}}}
-     (\| S \|) \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (A_1) | \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (A_2) |
-     \ldots | \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (A_n)$$
+$$\operatorname{Enc}_{\operatorname{SC}} (S) :=\operatorname{Enc}^{\operatorname{Len}}_{\operatorname{SC}}
+     (\| S \|) \operatorname{Enc}_{\operatorname{SC}} (A_1) | \operatorname{Enc}_{\operatorname{SC}} (A_2) |
+     \ldots | \operatorname{Enc}_{\operatorname{SC}} (A_n)$$
 where
-$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}}^{\ensuremath{\operatorname{Len}}}$
+$\operatorname{Enc}_{\operatorname{SC}}^{\operatorname{Len}}$
 is defined in Definition
 [\[defn-sc-len-encoding\]](#defn-sc-len-encoding){reference-type="ref"
 reference="defn-sc-len-encoding"}. SCALE codec for **dictionary** or
 **hashtable** D with key-value pairs $(k_i, v_i)$s such that:
 $$D :=\{ (k_1, v_1), \ldots, (k_1, v_n) \}$$ is defined the SCALE codec
 of $D$ as a sequence of key value pairs (as tuples):
-$$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (D) :=\ensuremath{\operatorname{Enc}}^{\ensuremath{\operatorname{Len}}}_{\ensuremath{\operatorname{SC}}}
-     (\| D \|) \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} ((k_1, v_1)_{}) | \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}}
-     ((k_2, v_2)) | \ldots | \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} ((k_n, v_n))$$
+$$\operatorname{Enc}_{\operatorname{SC}} (D) :=\operatorname{Enc}^{\operatorname{Len}}_{\operatorname{SC}}
+     (\| D \|) \operatorname{Enc}_{\operatorname{SC}} ((k_1, v_1)_{}) | \operatorname{Enc}_{\operatorname{SC}}
+     ((k_2, v_2)) | \ldots | \operatorname{Enc}_{\operatorname{SC}} ((k_n, v_n))$$
 $$\$$
 
 The **SCALE codec** for **boolean value** $b$ defined as a byte as
 follows: $$\begin{array}{ll}
-       \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} : & \{ \ensuremath{\operatorname{False}}, \ensuremath{\operatorname{True}} \} \rightarrow
+       \operatorname{Enc}_{\operatorname{SC}} : & \{ \operatorname{False}, \operatorname{True} \} \rightarrow
        \mathbb{B}_1\\
        & b \rightarrow \left\{ \begin{array}{lcl}
-         0 &  & b = \ensuremath{\operatorname{False}}\\
-         1 &  & b = \ensuremath{\operatorname{True}}
+         0 &  & b = \operatorname{False}\\
+         1 &  & b = \operatorname{True}
        \end{array} \right.
      \end{array}$$
 
 The **SCALE codec,
-$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}}$** for
+$\operatorname{Enc}_{\operatorname{SC}}$** for
 other types such as fixed length integers not defined here otherwise, is
 equal to little endian encoding of those values defined in Definition
 [\[defn-little-endian\]](#defn-little-endian){reference-type="ref"
@@ -1962,10 +1962,10 @@ sizes prominently in an encoding length of arrays:
 
 [\[defn-sc-len-encoding\]]{#defn-sc-len-encoding
 label="defn-sc-len-encoding"}**SCALE Length Encoding,
-$\ensuremath{\operatorname{Enc}}^{\ensuremath{\operatorname{Len}}}_{\ensuremath{\operatorname{SC}}}$**
+$\operatorname{Enc}^{\operatorname{Len}}_{\operatorname{SC}}$**
 also known as compact encoding of a non-negative integer number $n$ is
 defined as follows: $$\begin{array}{ll}
-       \ensuremath{\operatorname{Enc}}^{\ensuremath{\operatorname{Len}}}_{\ensuremath{\operatorname{SC}}} : & \mathbb{N} \rightarrow
+       \operatorname{Enc}^{\operatorname{Len}}_{\operatorname{SC}} : & \mathbb{N} \rightarrow
        \mathbb{B}\\
        & n \rightarrow b :=\left\{ \begin{array}{lll}
          l^{}_1 &  & 0 \leqslant n < 2^6\\
@@ -2015,14 +2015,14 @@ sequences of 4-bits nibbles into byte arrays canonically:
 
 [\[defn-hex-encoding\]]{#defn-hex-encoding
 label="defn-hex-encoding"}Suppose that
-$\ensuremath{\operatorname{PK}} = (k_1, \ldots, k_n)$ is a sequence of
+$\operatorname{PK} = (k_1, \ldots, k_n)$ is a sequence of
 nibbles, then
 
 l
-$\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{HE}}} (\ensuremath{\operatorname{PK}}) :=$\
+$\operatorname{Enc}_{\operatorname{HE}} (\operatorname{PK}) :=$\
 $\left\{ \begin{array}{lll}
-      \ensuremath{\operatorname{Nibbles}}_4 & \rightarrow & \mathbb{B}\\
-      \ensuremath{\operatorname{PK}} = (k_1, \ldots, k_n) & \mapsto & \left\{ \begin{array}{l}
+      \operatorname{Nibbles}_4 & \rightarrow & \mathbb{B}\\
+      \operatorname{PK} = (k_1, \ldots, k_n) & \mapsto & \left\{ \begin{array}{l}
         \begin{array}{ll}
           (16 k_1 + k_2, \ldots, 16 k_{2 i - 1} + k_{2 i}) & n = 2 i\\
           (k_1, 16 k_2 + k_3, \ldots, 16 k_{2 i} + k_{2 i + 1}) & n = 2 i + 1
@@ -2047,8 +2047,8 @@ A **network message** is a byte array, **$M$** of length $\| M \|$ such
 that:
 
 $$\begin{array}{cc}
-       M_1 & \ensuremath{\operatorname{Message}} \ensuremath{\operatorname{Type}} \ensuremath{\operatorname{Indicator}}\\
-       M_2 \ldots M_{\| M \|} & \ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (\ensuremath{\operatorname{MessageBody}})
+       M_1 & \operatorname{Message} \operatorname{Type} \operatorname{Indicator}\\
+       M_2 \ldots M_{\| M \|} & \operatorname{Enc}_{\operatorname{SC}} (\operatorname{MessageBody})
      \end{array}$$
 
 The body of each message consists of different components based on its
@@ -2091,8 +2091,8 @@ This section disucsses the detailed structure of each network message.
 
 A *Status* Message represented by $M_S$ is sent after a connection with
 a neighbouring node is established and has the following structure:
-$$M^{}_S :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (v, r, N_B, \ensuremath{\operatorname{Hash}}_B,
-   \ensuremath{\operatorname{Hash}}_G, C_S)$$ Where:
+$$M^{}_S :=\operatorname{Enc}_{\operatorname{SC}} (v, r, N_B, \operatorname{Hash}_B,
+   \operatorname{Hash}_G, C_S)$$ Where:
 
 In which, Role is a bitmap value whose bits represent different roles
 for the sender node as specified in Table
@@ -2107,10 +2107,10 @@ reference="tabl-node-role"}:
 ### Block Request Message {#sect-msg-block-request}
 
 A Block request message, represented by
-$M_{\ensuremath{\operatorname{BR}}}$, is sent to request block data for
+$M_{\operatorname{BR}}$, is sent to request block data for
 a range of blocks from a peer and has the following structure:
-$$M^{}_{\ensuremath{\operatorname{BR}}} :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (\ensuremath{\operatorname{id}}, A_B, S_B,
-   \ensuremath{\operatorname{Hash}}_E, d, \ensuremath{\operatorname{Max}})$$
+$$M^{}_{\operatorname{BR}} :=\operatorname{Enc}_{\operatorname{SC}} (\operatorname{id}, A_B, S_B,
+   \operatorname{Hash}_E, d, \operatorname{Max})$$
 where:
 
  
@@ -2129,17 +2129,17 @@ in which
     [\[defn-scale-variable-type\]](#defn-scale-variable-type){reference-type="ref"
     reference="defn-scale-variable-type"}) of either $\mathbb{B}_{32}$
     representing the block hash, $H_B$, or
-    $64 \ensuremath{\operatorname{bit}}$ integer representing the block
+    $64 \operatorname{bit}$ integer representing the block
     number of the starting block of the requested range of blocks.
 
--   $\ensuremath{\operatorname{Hash}}_E$ is optionally the block hash of
+-   $\operatorname{Hash}_E$ is optionally the block hash of
     the last block in the range.
 
 -   $d$ is a flag; it defines the direction on the block chain where the
     block range should be considered (starting with the starting block),
     as follows $$d = \left\{ \begin{array}{cc}
-           0 & \ensuremath{\operatorname{child}} \ensuremath{\operatorname{to}} \ensuremath{\operatorname{parent}} \ensuremath{\operatorname{direction}}\\
-           1 & \ensuremath{\operatorname{parent}} \ensuremath{\operatorname{to}} \ensuremath{\operatorname{child}} \ensuremath{\operatorname{direction}}
+           0 & \operatorname{child} \operatorname{to} \operatorname{parent} \operatorname{direction}\\
+           1 & \operatorname{parent} \operatorname{to} \operatorname{child} \operatorname{direction}
          \end{array} \right.$$
 
 Optional data type is defined in Definition
@@ -2149,11 +2149,11 @@ reference="defn-varrying-data-type"}.
 ### Block Response Message {#sect-msg-block-response}
 
 A *block response message* represented by
-$M_{\ensuremath{\operatorname{BS}}}$ is sent in a response to a
+$M_{\operatorname{BS}}$ is sent in a response to a
 requested block message (see Section
 [10.1.2](#sect-msg-block-request){reference-type="ref"
 reference="sect-msg-block-request"}). It has the following structure:
-$$M^{}_{\ensuremath{\operatorname{BS}}} :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (\ensuremath{\operatorname{id}}, D)$$
+$$M^{}_{\operatorname{BS}} :=\operatorname{Enc}_{\operatorname{SC}} (\operatorname{id}, D)$$
 where:
 
  
@@ -2165,8 +2165,8 @@ reference="defn-block-data"}.
 [\[defn-block-data\]]{#defn-block-data label="defn-block-data"}**Block
 Data** is defined as the follownig tuple:
 
-$$(H_B, \ensuremath{\operatorname{Header}}_B, \ensuremath{\operatorname{Body}}, \ensuremath{\operatorname{Receipt}}, \ensuremath{\operatorname{MessageQueue}},
-   \ensuremath{\operatorname{Justification}})$$ Whose elements, with the
+$$(H_B, \operatorname{Header}_B, \operatorname{Body}, \operatorname{Receipt}, \operatorname{MessageQueue},
+   \operatorname{Justification})$$ Whose elements, with the
 exception of $H_B$, are all of the following *optional type* (see
 Definition
 [\[defn-varrying-data-type\]](#defn-varrying-data-type){reference-type="ref"
@@ -2175,18 +2175,18 @@ reference="defn-varrying-data-type"}) and are defined as follows:
 ### Block Announce Message {#sect-msg-block-announce}
 
 A *block announce message* represented by
-$M_{\ensuremath{\operatorname{BA}}}$ is sent when a node becomes aware
+$M_{\operatorname{BA}}$ is sent when a node becomes aware
 of a new complete block on the network and has the following structure:
-$$M_{\ensuremath{\operatorname{BA}}} :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (\ensuremath{\operatorname{Header}}_B)$$
+$$M_{\operatorname{BA}} :=\operatorname{Enc}_{\operatorname{SC}} (\operatorname{Header}_B)$$
 Where:
 
 ### Transactions {#sect-msg-transactions}
 
    The transactions Message is represented by $M_T$ and is defined as
 follows:
-$$M_T :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (C_1, \ldots, C_n)$$
+$$M_T :=\operatorname{Enc}_{\operatorname{SC}} (C_1, \ldots, C_n)$$
 in which:
-$$C_i :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (E_i)$$
+$$C_i :=\operatorname{Enc}_{\operatorname{SC}} (E_i)$$
 Where each $E_i$ is a byte array and represents a sepearate extrinsic.
 Polkadot RE is indifferent about the content of an extrinsic and treats
 it as a blob of data.
@@ -2195,19 +2195,19 @@ it as a blob of data.
 
 A *consensus message* represented by $M_C$ is sent to communicate
 messages related to consensus process:
-$$M_C :=\ensuremath{\operatorname{Enc}}_{\ensuremath{\operatorname{SC}}} (E_{\ensuremath{\operatorname{id}}}, D)$$
+$$M_C :=\operatorname{Enc}_{\operatorname{SC}} (E_{\operatorname{id}}, D)$$
 Where:
 
 in which
-$$E_{\ensuremath{\operatorname{id}}} :=\left\{ \begin{array}{ccc}
-     '' \ensuremath{\operatorname{BABE}}'' &  & \ensuremath{\operatorname{For}} \ensuremath{\operatorname{messages}} \ensuremath{\operatorname{related}} \ensuremath{\operatorname{to}}
-     \ensuremath{\operatorname{BABE}} \ensuremath{\operatorname{protocol}}\\
-     '' \ensuremath{\operatorname{FRNK}}'' &  & \ensuremath{\operatorname{For}} \ensuremath{\operatorname{messages}} \ensuremath{\operatorname{related}} \ensuremath{\operatorname{to}}
-     \ensuremath{\operatorname{GRANDPA}} \ensuremath{\operatorname{protocol}}
+$$E_{\operatorname{id}} :=\left\{ \begin{array}{ccc}
+     '' \operatorname{BABE}'' &  & \operatorname{For} \operatorname{messages} \operatorname{related} \operatorname{to}
+     \operatorname{BABE} \operatorname{protocol}\\
+     '' \operatorname{FRNK}'' &  & \operatorname{For} \operatorname{messages} \operatorname{related} \operatorname{to}
+     \operatorname{GRANDPA} \operatorname{protocol}
    \end{array} \right.$$
 
 The network agent should hand over $D$ to approperiate consensus engine
-which identified by $E_{\ensuremath{\operatorname{id}}}$.
+which identified by $E_{\operatorname{id}}$.
 
 Runtime Environment API[\[sect-re-api\]]{#sect-re-api label="sect-re-api"}
 ==========================================================================
@@ -3241,7 +3241,7 @@ consensus protocol.
 **Return**:
 
 A tuple
-$$(\mathcal{E}_n, s^n_0, \ensuremath{\operatorname{sc}}_n, A, \rho, \ensuremath{\operatorname{Sec}})$$
+$$(\mathcal{E}_n, s^n_0, \operatorname{sc}_n, A, \rho, \operatorname{Sec})$$
 
 where:
 
@@ -3293,8 +3293,8 @@ reference="tabl-transaction-validity"}:
 
 In which the quintuple of type for valid extrinsics consists of the
 following parts:
-$$(\ensuremath{\operatorname{priority}}, \ensuremath{\operatorname{requires}}, \ensuremath{\operatorname{provides}}, \ensuremath{\operatorname{longevity}},
-   \ensuremath{\operatorname{propagate}})$$
+$$(\operatorname{priority}, \operatorname{requires}, \operatorname{provides}, \operatorname{longevity},
+   \operatorname{propagate})$$
 
 \setlength{\tmfloatwidth}{\widthof{\tmfloatcontents}+1in}
 \ifthenelse{\equal{small}{small}}{\setlength{\tmfloatwidth}{0.45\linewidth}}{\setlength{\tmfloatwidth}{\linewidth}}
