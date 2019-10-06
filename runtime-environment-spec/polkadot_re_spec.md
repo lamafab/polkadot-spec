@@ -391,7 +391,6 @@ reference="algo-aggregate-key"} rigorously demonstrates how to build
 $\operatorname{pk}^{\operatorname{Agr}}_N$
 while traversing $P_N$.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-aggregate-key\]]{#algo-aggregate-key
@@ -478,7 +477,6 @@ $\operatorname{Head}_{N, 2}, \ldots,
 Algorithm [\[algo-pk-length\]](#algo-pk-length){reference-type="ref"
 reference="algo-pk-length"}.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-pk-length\]]{#algo-pk-length
@@ -611,7 +609,6 @@ The general procedure to interact with Runtime is described in Algorithm
 [\[algo-runtime-interaction\]](#algo-runtime-interaction){reference-type="ref"
 reference="algo-runtime-interaction"}.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-runtime-interaction\]]{#algo-runtime-interaction
@@ -807,7 +804,6 @@ Algorithm
 reference="algo-validate-transactions"} updates the transaction pool and
 the transaction queue according to the received message:
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-validate-transactions\]]{#algo-validate-transactions
@@ -843,7 +839,6 @@ In which
 -   [Propagate(]{.smallcaps}$T$) include $T$ in the next *transactions
     message* sent to all peers of Polkadot RE node.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-maintain-transaction-pool\]]{#algo-maintain-transaction-pool
@@ -995,7 +990,6 @@ process.
 Polkadot RE implements the following procedure to assure the validity of
 the block:
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [Import-and-Validate-Block($B, \operatorname{Just} (B)$)]{.smallcaps}
@@ -1282,7 +1276,6 @@ to build a block. The $\operatorname{sk}$ is the block
 producer lottery secret key and $n$ is the index of epoch for whose
 slots the block producer is running the lottery.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-block-production-lottery\]]{#algo-block-production-lottery
@@ -1344,7 +1337,6 @@ the function whose value is equal to the number of slots between $s_i$
 and $s_j$ (counting $s_j$) on time continuum. As such, we have
 [Slot-Offset]{.smallcaps}$(s_i, s_i) = 0$.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-slot-time\]]{#algo-slot-time
@@ -1389,7 +1381,6 @@ $\operatorname{Sig}_{\operatorname{SR} 25519, \operatorname{sk}^s_j}
 
  
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-block-production\]]{#algo-block-production
@@ -1409,7 +1400,6 @@ subchain described in Definition
 [\[defn-epoch-subchain\]](#defn-epoch-subchain){reference-type="ref"
 reference="defn-epoch-subchain"}.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-epoch-randomness\]]{#algo-epoch-randomness
@@ -1450,7 +1440,6 @@ reference="algo-verify-authorship-right"} where:
     [\[algo-verify-slot-winner\]](#algo-verify-slot-winner){reference-type="ref"
     reference="algo-verify-slot-winner"}.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-verify-authorship-right\]]{#algo-verify-authorship-right
@@ -1478,7 +1467,6 @@ verification process, when a node is importing a block, in which:
     [\[defn-winning-threshold\]](#defn-winning-threshold){reference-type="ref"
     reference="defn-winning-threshold"}.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-verify-slot-winner\]]{#algo-verify-slot-winner
@@ -1501,7 +1489,6 @@ reference="algo-block-production"} of the consensus engine which runs
 Alogrithm [\[algo-build-block\]](#algo-build-block){reference-type="ref"
 reference="algo-build-block"}.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-build-block\]]{#algo-build-block
@@ -1732,7 +1719,6 @@ reference="alg-join-leave-grandpa"}, whenever the membership of GRANDPA
 voters changes, $r$ is set to 0 and $V_{\operatorname{id}}$
 needs to be incremented.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[alg-join-leave-grandpa\]]{#alg-join-leave-grandpa
@@ -1746,7 +1732,6 @@ process by following Algorithm
 [\[algo-grandpa-round\]](#algo-grandpa-round){reference-type="ref"
 reference="algo-grandpa-round"}.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-grandpa-round\]]{#algo-grandpa-round
@@ -1763,13 +1748,11 @@ in Algorithm
 [\[algo-attempt-tofinalize\]](#algo-attempt-tofinalize){reference-type="ref"
 reference="algo-attempt-tofinalize"}.
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-grandpa-best-candidate\]]{#algo-grandpa-best-candidate
 label="algo-grandpa-best-candidate"}[Best-Final-Candidate]{.smallcaps}($r$)
 
-\addtocounter{tmcounter}{-1}
 **Algorithm**
 
 [\[algo-attempt-tofinalize\]]{#algo-attempt-tofinalize
