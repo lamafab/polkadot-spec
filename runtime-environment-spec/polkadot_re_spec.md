@@ -1,17 +1,9 @@
----
-date: 'October 4, 2019'
-title: |
-     Polkadot Runtime Environment\
-    Protocol Specification
-based_on_commit (master): 6d9d4b542e7a8bd8ab55fd2d95db1daf5745b928
----
+% date: 'October 4, 2019'
+% title: Polkadot Runtime Environment Protocol Specification
+% based_on_commit (master): 6d9d4b542e7a8bd8ab55fd2d95db1daf5745b928
 
-\maketitle
-Background
-==========
-
-Introduction
-------------
+# Background
+## Introduction
 
 Formally, Polkadot is a replicated sharded state machine designed to
 resolve the scalability and interoperability among blockchains. In
@@ -52,8 +44,7 @@ reference="sect-genisis-block"}. A Polkadot RE implementation which
 conforms with this part of the specification should successfully be able
 to sync its states with the Polkadot network.
 
-Definitions and Conventions {#sect-defn-conv}
----------------------------
+## Definitions and Conventions {#sect-defn-conv}
 
 [\[defn-state-machine\]]{#defn-state-machine
 label="defn-state-machine"}A **Discrete State Machine (DSM)** is a state
@@ -73,7 +64,7 @@ $$(\Sigma, S, s_0, \delta)$$ where
     $$\delta : S \times \Sigma \rightarrow S$$
 
 [\[defn-path-graph\]]{#defn-path-graph label="defn-path-graph"}A **path
-graph** or a **path** of $n$ nodes formally referred to as **$P_n$**, is
+graph** or a **path** of *n* nodes formally referred to as $P_n$, is
 a tree with two nodes of vertex degree 1 and the other n-2 nodes of
 vertex degree 2. Therefore, $P_n$ can be represented by sequences of
 $(v_1, \ldots, v_n)$ where $e_i = (v_i, v_{i + 1})$ for
@@ -297,7 +288,7 @@ For the purpose of labeling the branches of the Trie, the key $k$ is
 encoded to $k_{\operatorname{enc}}$ using KeyEncode
 functions:
 $$k_{\operatorname{enc}} :=(k_{\operatorname{enc}_1}, \ldots, k_{\operatorname{enc}_{2 n}})
-    :=\operatorname{KeyEncode} (k) \label{key-encode-in-trie}$$
+    :=\operatorname{KeyEncode} (k) key-encode-in-trie$$
 such that:
 $$\operatorname{KeyEncode} (k) : \left\{ \begin{array}{lll}
        \mathbb{B}^{} & \rightarrow & \operatorname{Nibbles}^4\\
