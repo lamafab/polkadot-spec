@@ -3,6 +3,7 @@ date: 'October 4, 2019'
 title: |
      Polkadot Runtime Environment\
     Protocol Specification
+based_on_commit (master): 6d9d4b542e7a8bd8ab55fd2d95db1daf5745b928
 ---
 
 \maketitle
